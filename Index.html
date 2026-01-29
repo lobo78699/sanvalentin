@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Continuar Partida 💜</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #3a0ca3, #7209b7, #b5179e);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.45);
+      max-width: 750px;
+      padding: 45px;
+      border-radius: 25px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      color: #f1c0ff;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      font-weight: normal;
+      opacity: 0.9;
+      margin-bottom: 35px;
+    }
+
+    p {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      margin-bottom: 22px;
+    }
+
+    .formula {
+      font-size: 3rem;
+      font-weight: bold;
+      margin: 40px 0;
+      color: #ffd6ff;
+      letter-spacing: 3px;
+    }
+
+    .halo {
+      margin: 30px 0;
+      font-style: italic;
+      opacity: 0.95;
+    }
+
+    .question {
+      font-size: 1.8rem;
+      margin-top: 40px;
+      color: #f1c0ff;
+    }
+
+    .options {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    button {
+      font-size: 1.2rem;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .yes {
+      background: linear-gradient(135deg, #7209b7, #b5179e);
+      color: #fff;
+      box-shadow: 0 15px 30px rgba(181, 23, 158, 0.5);
+    }
+
+    .no {
+      background: rgba(255, 255, 255, 0.15);
+      color: #eee;
+    }
+
+    button:hover {
+      transform: translateY(-4px) scale(1.05);
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+      .no:hover {
+      background: linear-gradient(135deg, #7209b7, #b5179e);
+      color: #fff;
+    }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Guardar partida 💜</h1>
+    <h2>14 de febrero · Gracias por estos 4 meses</h2>
+
+    <p>
+      No soy bueno con cartas normales. La verdad es que mi mundo era oscuro,
+      silencioso y pesado. Caminaba sin mirar demasiado alrededor,
+      pensando que así eran las cosas y que no había mucho más.
+    </p>
+
+    <p>
+      Gracias por estos <strong>4 meses</strong>. Porque llegaste cuando no sabía
+      cómo salir de ahí. Tú me mostraste que había una puerta,
+      que no todo era lamentable, que todavía había luz del otro lado.
+      (Como en esa canción de José Madero que dice justo eso.)
+    </p>
+
+    <div class="formula">
+      m = (y₂ − y₁) / (x₂ − x₁)
+    </div>
+
+    <p>
+      En esa fórmula, <strong>m</strong> es la pendiente: la dirección que toma todo.
+      <strong>x₁</strong> y <strong>y₁</strong> era yo, perdido en mi oscuridad.
+      <strong>x₂</strong> y <strong>y₂</strong> eres tú, llegando a mi vida.
+      La diferencia entre esos puntos cambió por completo el rumbo.
+    </p>
+
+    <p>
+      Un pequeño cambio puede alterar toda la dirección.
+      Tú fuiste ese cambio. Te necesito más de lo que a veces sé decir,
+      te amo mucho, y hoy puedo decir sin miedo que eres todo para mí.
+      Gracias por quedarte y por elegirme.
+    </p>
+
+    <div class="halo">
+      “Aunque el mundo nos caiga encima,
+      mientras estemos juntos, todo vale la pena.”<br />
+      — Nanatsu no Taizai
+    </div>
+
+    <p>
+      No prometo el camino más fácil,
+      pero sí uno donde no tengas que caminar sola.
+      Donde cada nivel, incluso el difícil,
+      valga la pena jugarlo contigo.
+    </p>
+
+    <div class="question">
+      ¿Quieres seguir jugando esta partida conmigo?
+    </div>
+
+    <div class="options">
+      <button class="yes" onclick="alert('💜 Partida guardada correctamente. Gracias por quedarte conmigo, prometo cuidarte y amarte siempre.');">▶️ Sí, continuar 💜</button>
+      <button class="no" onmouseover="this.innerText='💜 Sí quiero ser tu novia';" onmouseout="this.innerText='⏸️ No';" onclick="alert('🖤 Aun así, gracias por llegar a mi vida. Lo que vivimos siempre tendrá un lugar en mi corazón.');">⏸️ No</button>
+    </div>
+
+    <footer>
+      — Alex
+    </footer>
+  </div>
+</body>
+</html>
