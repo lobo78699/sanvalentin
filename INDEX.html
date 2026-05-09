@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Oky Doky Checklists</title>
+<title>Oky Doky Check Lists</title>
 
 <style>
 
 body{
     margin:0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#ff9800,#ffd54f);
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#ff9800,#ffd54f);
 }
 
 .header{
@@ -24,7 +24,12 @@ body{
 
 .header h1{
     margin:0;
-    font-size:35px;
+    font-size:38px;
+}
+
+.header p{
+    margin-top:10px;
+    font-size:18px;
 }
 
 .menu{
@@ -46,6 +51,7 @@ body{
     font-weight:bold;
     cursor:pointer;
     transition:0.3s;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
 .menu button:hover{
@@ -69,7 +75,7 @@ iframe{
 
 <h1>🎉 Oky Doky Check Lists 🎉</h1>
 
-<p>Seleccione un área</p>
+<p>Seleccione un área de trabajo</p>
 
 </div>
 
@@ -79,31 +85,29 @@ iframe{
 🚗 Valet Parking
 </button>
 
-<button onclick="cargarPagina('meseros.html')">
-🍽️ Meseros
-</button>
-
-<button onclick="cargarPagina('staff.html')">
+<button onclick="cargarPagina('https://lobo78699.github.io/sanvalentin/Staff1.html')">
 🛠️ Staff
 </button>
 
-<button onclick="cargarPagina('dj.html')">
+<button onclick="cargarPagina('https://lobo78699.github.io/sanvalentin/Dj.html')">
 🎧 DJ Audio
 </button>
 
-<button onclick="cargarPagina('coordinador.html')">
+<button onclick="cargarPagina('https://lobo78699.github.io/sanvalentin/Cordinador_Animadora.html')">
 🎤 Coordinador / Animadora
 </button>
 
 </div>
 
-<iframe id="visor"></iframe>
+<iframe id="visor"
+src="https://lobo78699.github.io/sanvalentin/Valet_Parking.html">
+</iframe>
 
 <script>
 
-function cargarPagina(pagina){
+function cargarPagina(url){
 
-    document.getElementById("visor").src = pagina;
+    document.getElementById("visor").src = url;
 
 }
 
