@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checklist Valet Parking</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding: 20px;
+}
+
+.container{
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+h1{
+    text-align: center;
+    color: #ff7300;
+}
+
+.nombre{
+    margin-bottom: 25px;
+}
+
+input[type="text"]{
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    font-size: 16px;
+}
+
+.lista{
+    margin-top: 20px;
+}
+
+.item{
+    background: #fff3e0;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.item input{
+    transform: scale(1.4);
+}
+
+button{
+    width: 100%;
+    padding: 15px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 12px;
+    background: #ff7300;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover{
+    background: #e66300;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🚗 Checklist Valet Parking</h1>
+
+<div class="nombre">
+<label><b>Nombre de quien realizó las actividades:</b></label>
+<input type="text" id="nombre" placeholder="Escriba su nombre">
+</div>
+
+<div class="lista">
+
+<div class="item">
+<input type="checkbox" id="1">
+<label for="1">Revisar el nivel de agua en los tinacos</label>
+</div>
+
+<div class="item">
+<input type="checkbox" id="2">
+<label for="2">Prender y apagar la bomba de agua si es necesario</label>
+</div>
+
+<div class="item">
+<input type="checkbox" id="3">
+<label for="3">Limpieza del estacionamiento</label>
+</div>
+
+<div class="item">
+<input type="checkbox" id="4">
+<label for="4">Limpieza de entrada del salón y escaleras</label>
+</div>
+
+<div class="item">
+<input type="checkbox" id="5">
+<label for="5">Limpieza de cancelería de entrada al salón</label>
+</div>
+
+<div class="item">
+<input type="checkbox" id="6">
+<label for="6">Boletos de estacionamiento</label>
+</div>
+
+<div class="item">
+<input type="checkbox" id="7">
+<label for="7">Regar el jardín y recoger basura</label>
+</div>
+
+<div class="item">
+<input type="checkbox" id="8">
+<label for="8">Abrir estacionamiento</label>
+</div>
+
+<div class="item">
+<input type="checkbox" id="9">
+<label for="9">Colocar banderines</label>
+</div>
+
+<div class="item">
+<input type="checkbox" id="10">
+<label for="10">Tener listo y cargado su radio</label>
+</div>
+
+<div class="item">
+<input type="checkbox" id="11">
+<label for="11">Utilizar chaleco y banderín</label>
+</div>
+
+</div>
+
+<button onclick="generarPDF()">
+📄 Generar PDF
+</button>
+
+</div>
+
+<script>
+
+async function generarPDF(){
+
+    const { jsPDF } = window.jspdf;
+
+    const doc = new jsPDF();
+
+    const nombre = document.getElementById("nombre").value;
+
+    let y = 20;
+
+    doc.setFontSize(18);
+    doc.text("Checklist Valet Parking", 20, y);
+
+    y += 15;
+
+    doc.setFontSize(14);
+    doc.text("Realizado por: " + nombre, 20, y);
+
+    y += 20;
+
+    const actividades = [
+        "Revisar el nivel de agua en los tinacos",
+        "Prender y apagar la bomba de agua si es necesario",
+        "Limpieza del estacionamiento",
+        "Limpieza de entrada del salón y escaleras",
+        "Limpieza de cancelería de entrada al salón",
+        "Boletos de estacionamiento",
+        "Regar el jardín y recoger basura",
+        "Abrir estacionamiento",
+        "Colocar banderines",
+        "Tener listo y cargado su radio",
+        "Utilizar chaleco y banderín"
+    ];
+
+    actividades.forEach((actividad, index) => {
+
+        const checked = document.getElementById(index + 1).checked;
+
+        doc.text(
+            (checked ? "✔ " : "✘ ") + actividad,
+            20,
+            y
+        );
+
+        y += 12;
+
+    });
+
+    doc.save("Checklist_ValetParking.pdf");
+
+}
+
+</script>
+
+</body>
+</html>
