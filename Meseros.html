@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checklist Meseros</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#ff9800,#ffd54f);
+    padding: 20px;
+}
+
+.container{
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+h1{
+    text-align: center;
+    color: #ff6f00;
+    margin-bottom: 30px;
+    font-size: 35px;
+}
+
+.nombre{
+    margin-bottom: 25px;
+}
+
+input[type="text"]{
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 2px solid #ccc;
+    font-size: 16px;
+}
+
+.lista{
+    margin-top: 20px;
+}
+
+.item{
+    background: #fff8e1;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.3s;
+}
+
+.item:hover{
+    transform: scale(1.01);
+    background: #ffe082;
+}
+
+.item input{
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.item label{
+    font-size: 17px;
+}
+
+button{
+    width: 100%;
+    padding: 16px;
+    margin-top: 30px;
+    border: none;
+    border-radius: 14px;
+    background: #ff6f00;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover{
+    background: #e65100;
+    transform: scale(1.02);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🍽️ Checklist Meseros</h1>
+
+<div class="nombre">
+<label><b>Nombre del empleado:</b></label>
+<input type="text" id="nombre" placeholder="Escriba su nombre">
+</div>
+
+<div class="lista">
+
+<div class="item"><input type="checkbox" id="1"><label>Montar mesas y sillas</label></div>
+
+<div class="item"><input type="checkbox" id="2"><label>Solicitar mantelería y revisar que esté completa</label></div>
+
+<div class="item"><input type="checkbox" id="3"><label>Solicitar losa y verificar que esté completa</label></div>
+
+<div class="item"><input type="checkbox" id="4"><label>Mantener barra y cocina ordenada y limpia</label></div>
+
+<div class="item"><input type="checkbox" id="5"><label>Revisar que se tengan servilletas</label></div>
+
+<div class="item"><input type="checkbox" id="6"><label>Revisar que se tenga sal</label></div>
+
+<div class="item"><input type="checkbox" id="7"><label>Revisar que se tenga saleros</label></div>
+
+<div class="item"><input type="checkbox" id="8"><label>Revisar que se tenga tortilleros</label></div>
+
+<div class="item"><input type="checkbox" id="9"><label>Revisar que se tenga jarras</label></div>
+
+<div class="item"><input type="checkbox" id="10"><label>Revisar que se tenga hieleras</label></div>
+
+<div class="item"><input type="checkbox" id="11"><label>Revisar que se tengan salseros</label></div>
+
+<div class="item"><input type="checkbox" id="12"><label>Solicitar jarabes y preparar agua</label></div>
+
+<div class="item"><input type="checkbox" id="13"><label>Solicitar hielo y tenerlo listo</label></div>
+
+<div class="item"><input type="checkbox" id="14"><label>Solicitar jabón en polvo</label></div>
+
+<div class="item"><input type="checkbox" id="15"><label>Revisar y solicitar artículos de limpieza</label></div>
+
+<div class="item"><input type="checkbox" id="16"><label>Desmontar mobiliario y mantelería</label></div>
+
+<div class="item"><input type="checkbox" id="17"><label>Embolsar mantelería sucia y entregarla</label></div>
+
+<div class="item"><input type="checkbox" id="18"><label>Guardar mantelería limpia</label></div>
+
+<div class="item"><input type="checkbox" id="19"><label>Apoyar en recoger el salón al término del evento</label></div>
+
+<div class="item"><input type="checkbox" id="20"><label>Lavar utensilios que se ocuparon en el evento</label></div>
+
+<div class="item"><input type="checkbox" id="21"><label>Solicitar radio</label></div>
+
+</div>
+
+<button onclick="generarPDF()">
+📄 Generar PDF Profesional
+</button>
+
+</div>
+
+<script>
+
+async function generarPDF(){
+
+    const { jsPDF } = window.jspdf;
+
+    const doc = new jsPDF();
+
+    const nombre = document.getElementById("nombre").value || "Sin nombre";
+
+    const actividades = [
+
+        "Montar mesas y sillas",
+        "Solicitar mantelería y revisar que esté completa",
+        "Solicitar losa y verificar que esté completa",
+        "Mantener barra y cocina ordenada y limpia",
+        "Revisar que se tengan servilletas",
+        "Revisar que se tenga sal",
+        "Revisar que se tenga saleros",
+        "Revisar que se tenga tortilleros",
+        "Revisar que se tenga jarras",
+        "Revisar que se tenga hieleras",
+        "Revisar que se tengan salseros",
+        "Solicitar jarabes y preparar agua",
+        "Solicitar hielo y tenerlo listo",
+        "Solicitar jabón en polvo",
+        "Revisar y solicitar artículos de limpieza",
+        "Desmontar mobiliario y mantelería",
+        "Embolsar mantelería sucia y entregarla",
+        "Guardar mantelería limpia",
+        "Apoyar en recoger el salón al término del evento",
+        "Lavar utensilios que se ocuparon en el evento",
+        "Solicitar radio"
+
+    ];
+
+    doc.setFillColor(255,111,0);
+    doc.rect(0,0,210,30,"F");
+
+    doc.setTextColor(255,255,255);
+    doc.setFontSize(22);
+    doc.text("CHECKLIST MESEROS", 20, 20);
+
+    doc.setTextColor(0,0,0);
+
+    doc.setFontSize(14);
+
+    doc.text("Empleado:",20,45);
+    doc.text(nombre,55,45);
+
+    const fecha = new Date().toLocaleDateString();
+
+    doc.text("Fecha:",20,55);
+    doc.text(fecha,55,55);
+
+    let y = 75;
+
+    doc.setFillColor(240,240,240);
+    doc.rect(15,y-8,180,10,"F");
+
+    doc.setFontSize(13);
+
+    doc.text("Actividad",20,y);
+    doc.text("Estado",160,y);
+
+    y += 10;
+
+    actividades.forEach((actividad,index)=>{
+
+        const checked = document.getElementById(index + 1).checked;
+
+        if(y > 270){
+
+            doc.addPage();
+
+            y = 20;
+
+        }
+
+        doc.setDrawColor(200);
+
+        doc.rect(15,y-6,180,10);
+
+        doc.setFontSize(10);
+
+        doc.text(actividad,20,y);
+
+        if(checked){
+
+            doc.setTextColor(0,150,0);
+            doc.text("REALIZADO ✔",155,y);
+
+        }else{
+
+            doc.setTextColor(200,0,0);
+            doc.text("NO REALIZADO ✘",150,y);
+
+        }
+
+        doc.setTextColor(0,0,0);
+
+        y += 12;
+
+    });
+
+    y += 15;
+
+    doc.setFontSize(10);
+
+    doc.text(
+        "Documento generado automáticamente por el sistema Oky Doky",
+        20,
+        y
+    );
+
+    doc.save("Checklist_Meseros.pdf");
+
+}
+
+</script>
+
+</body>
+</html>
