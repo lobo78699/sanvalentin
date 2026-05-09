@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checklist Coordinador / Animadora</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#00897b,#80cbc4);
+    padding: 20px;
+}
+
+.container{
+    max-width: 950px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+h1{
+    text-align: center;
+    color: #00695c;
+    margin-bottom: 30px;
+    font-size: 35px;
+}
+
+.nombre{
+    margin-bottom: 25px;
+}
+
+input[type="text"]{
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 2px solid #ccc;
+    font-size: 16px;
+}
+
+.lista{
+    margin-top: 20px;
+}
+
+.item{
+    background: #e0f2f1;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.3s;
+}
+
+.item:hover{
+    transform: scale(1.01);
+    background: #b2dfdb;
+}
+
+.item input{
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.item label{
+    font-size: 16px;
+}
+
+button{
+    width: 100%;
+    padding: 16px;
+    margin-top: 30px;
+    border: none;
+    border-radius: 14px;
+    background: #00695c;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover{
+    background: #004d40;
+    transform: scale(1.02);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎤 Checklist Coordinador / Animadora</h1>
+
+<div class="nombre">
+<label><b>Nombre del empleado:</b></label>
+<input type="text" id="nombre" placeholder="Escriba su nombre">
+</div>
+
+<div class="lista">
+
+<div class="item"><input type="checkbox" id="1"><label>Verificar el estatus de actividades del estacionamiento</label></div>
+
+<div class="item"><input type="checkbox" id="2"><label>Verificar el estatus de actividades de meseros</label></div>
+
+<div class="item"><input type="checkbox" id="3"><label>Verificar el estatus de actividades de audio y DJ</label></div>
+
+<div class="item"><input type="checkbox" id="4"><label>Verificar el estatus de actividades del staff</label></div>
+
+<div class="item"><input type="checkbox" id="5"><label>Revisar mantelería</label></div>
+
+<div class="item"><input type="checkbox" id="6"><label>Imprimir programa y entregarlos a las diferentes áreas</label></div>
+
+<div class="item"><input type="checkbox" id="7"><label>Imprimir boletos</label></div>
+
+<div class="item"><input type="checkbox" id="8"><label>Imprimir número de mesas</label></div>
+
+<div class="item"><input type="checkbox" id="9"><label>Verificar si habrá show o banda</label></div>
+
+<div class="item"><input type="checkbox" id="10"><label>Verificar que la comida esté mínimo 1 hora antes en el salón</label></div>
+
+<div class="item"><input type="checkbox" id="11"><label>Verificar el montaje de mesas y sillas</label></div>
+
+<div class="item"><input type="checkbox" id="12"><label>Verificar limpieza del salón</label></div>
+
+<div class="item"><input type="checkbox" id="13"><label>Verificar si se utilizará gas</label></div>
+
+<div class="item"><input type="checkbox" id="14"><label>Contar y entregar losa a la capitán</label></div>
+
+<div class="item"><input type="checkbox" id="15"><label>Entregar jarabes de agua a la capitán</label></div>
+
+<div class="item"><input type="checkbox" id="16"><label>Entregar hielo al capitán</label></div>
+
+<div class="item"><input type="checkbox" id="17"><label>Coordinar con el cliente la comida</label></div>
+
+<div class="item"><input type="checkbox" id="18"><label>Entregar refrescos a la capitana</label></div>
+
+<div class="item"><input type="checkbox" id="19"><label>Verificar el estacionamiento</label></div>
+
+<div class="item"><input type="checkbox" id="20"><label>Verificar que su staff general esté listo 15 minutos antes del evento</label></div>
+
+<div class="item"><input type="checkbox" id="21"><label>Mandar foto grupal del staff</label></div>
+
+<div class="item"><input type="checkbox" id="22"><label>Mandar foto de meseros</label></div>
+
+<div class="item"><input type="checkbox" id="23"><label>Verificar que su staff esté presentable y peinado</label></div>
+
+<div class="item"><input type="checkbox" id="24"><label>Verificar que la cocina esté recogida</label></div>
+
+<div class="item"><input type="checkbox" id="25"><label>Verificar que tengan globos para batucada</label></div>
+
+<div class="item"><input type="checkbox" id="26"><label>Presentarse con el anfitrión y todo su staff</label></div>
+
+<div class="item"><input type="checkbox" id="27"><label>Estar al pendiente si los anfitriones requieren algo</label></div>
+
+<div class="item"><input type="checkbox" id="28"><label>Recibir y tomar foto del estatus de la comida al inicio del evento</label></div>
+
+<div class="item"><input type="checkbox" id="29"><label>Recibir y tomar foto del estatus de la comida al final del servicio</label></div>
+
+<div class="item"><input type="checkbox" id="30"><label>Coordinar con el cliente la entrega de la comida sobrante</label></div>
+
+<div class="item"><input type="checkbox" id="31"><label>Verificar que en el salón no se quede basura</label></div>
+
+<div class="item"><input type="checkbox" id="32"><label>Verificar que el equipo utilizado esté guardado ordenado y limpio</label></div>
+
+</div>
+
+<button onclick="generarPDF()">
+📄 Generar PDF Profesional
+</button>
+
+</div>
+
+<script>
+
+async function generarPDF(){
+
+    const { jsPDF } = window.jspdf;
+
+    const doc = new jsPDF();
+
+    const nombre = document.getElementById("nombre").value || "Sin nombre";
+
+    const actividades = [
+
+        "Verificar el estatus de actividades del estacionamiento",
+        "Verificar el estatus de actividades de meseros",
+        "Verificar el estatus de actividades de audio y DJ",
+        "Verificar el estatus de actividades del staff",
+        "Revisar mantelería",
+        "Imprimir programa y entregarlos a las diferentes áreas",
+        "Imprimir boletos",
+        "Imprimir número de mesas",
+        "Verificar si habrá show o banda",
+        "Verificar que la comida esté mínimo 1 hora antes en el salón",
+        "Verificar el montaje de mesas y sillas",
+        "Verificar limpieza del salón",
+        "Verificar si se utilizará gas",
+        "Contar y entregar losa a la capitán",
+        "Entregar jarabes de agua a la capitán",
+        "Entregar hielo al capitán",
+        "Coordinar con el cliente la comida",
+        "Entregar refrescos a la capitana",
+        "Verificar el estacionamiento",
+        "Verificar que su staff general esté listo 15 minutos antes del evento",
+        "Mandar foto grupal del staff",
+        "Mandar foto de meseros",
+        "Verificar que su staff esté presentable y peinado",
+        "Verificar que la cocina esté recogida",
+        "Verificar que tengan globos para batucada",
+        "Presentarse con el anfitrión y todo su staff",
+        "Estar al pendiente si los anfitriones requieren algo",
+        "Recibir y tomar foto del estatus de la comida al inicio del evento",
+        "Recibir y tomar foto del estatus de la comida al final del servicio",
+        "Coordinar con el cliente la entrega de la comida sobrante",
+        "Verificar que en el salón no se quede basura",
+        "Verificar que el equipo utilizado esté guardado ordenado y limpio"
+
+    ];
+
+    doc.setFillColor(0,105,92);
+    doc.rect(0,0,210,30,"F");
+
+    doc.setTextColor(255,255,255);
+    doc.setFontSize(22);
+    doc.text("CHECKLIST COORDINADOR / ANIMADORA",20,20);
+
+    doc.setTextColor(0,0,0);
+
+    doc.setFontSize(14);
+
+    doc.text("Empleado:",20,45);
+    doc.text(nombre,55,45);
+
+    const fecha = new Date().toLocaleDateString();
+
+    doc.text("Fecha:",20,55);
+    doc.text(fecha,55,55);
+
+    let y = 75;
+
+    doc.setFillColor(240,240,240);
+    doc.rect(15,y-8,180,10,"F");
+
+    doc.setFontSize(13);
+
+    doc.text("Actividad",20,y);
+    doc.text("Estado",160,y);
+
+    y += 10;
+
+    actividades.forEach((actividad,index)=>{
+
+        const checked = document.getElementById(index + 1).checked;
+
+        if(y > 270){
+
+            doc.addPage();
+
+            y = 20;
+
+        }
+
+        doc.setDrawColor(200);
+
+        doc.rect(15,y-6,180,10);
+
+        doc.setFontSize(9);
+
+        doc.text(actividad,20,y);
+
+        if(checked){
+
+            doc.setTextColor(0,150,0);
+            doc.text("REALIZADO ✔",155,y);
+
+        }else{
+
+            doc.setTextColor(200,0,0);
+            doc.text("NO REALIZADO ✘",148,y);
+
+        }
+
+        doc.setTextColor(0,0,0);
+
+        y += 12;
+
+    });
+
+    y += 15;
+
+    doc.setFontSize(10);
+
+    doc.text(
+        "Documento generado automáticamente por el sistema Oky Doky",
+        20,
+        y
+    );
+
+    doc.save("Checklist_Coordinador_Animadora.pdf");
+
+}
+
+</script>
+
+</body>
+</html>
