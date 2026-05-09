@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Oky Doky Checklists</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#ff9800,#ffd54f);
+}
+
+.header{
+    background:#ff6f00;
+    color:white;
+    text-align:center;
+    padding:20px;
+    box-shadow:0 5px 10px rgba(0,0,0,0.2);
+}
+
+.header h1{
+    margin:0;
+    font-size:35px;
+}
+
+.menu{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    padding:20px;
+    background:white;
+}
+
+.menu button{
+    padding:15px 25px;
+    border:none;
+    border-radius:15px;
+    background:#ff9800;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.menu button:hover{
+    transform:scale(1.05);
+    background:#f57c00;
+}
+
+iframe{
+    width:100%;
+    height:80vh;
+    border:none;
+    background:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+
+<h1>🎉 Oky Doky Check Lists 🎉</h1>
+
+<p>Seleccione un área</p>
+
+</div>
+
+<div class="menu">
+
+<button onclick="cargarPagina('valet.html')">
+🚗 Valet Parking
+</button>
+
+<button onclick="cargarPagina('meseros.html')">
+🍽️ Meseros
+</button>
+
+<button onclick="cargarPagina('staff.html')">
+🛠️ Staff
+</button>
+
+<button onclick="cargarPagina('dj.html')">
+🎧 DJ Audio
+</button>
+
+<button onclick="cargarPagina('coordinador.html')">
+🎤 Coordinador / Animadora
+</button>
+
+</div>
+
+<iframe id="visor"></iframe>
+
+<script>
+
+function cargarPagina(pagina){
+
+    document.getElementById("visor").src = pagina;
+
+}
+
+</script>
+
+</body>
+</html>
