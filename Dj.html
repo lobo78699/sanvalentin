@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checklist DJ Audio</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#1565c0,#64b5f6);
+    padding: 20px;
+}
+
+.container{
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+h1{
+    text-align: center;
+    color: #1565c0;
+    margin-bottom: 30px;
+    font-size: 35px;
+}
+
+.nombre{
+    margin-bottom: 25px;
+}
+
+input[type="text"]{
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 2px solid #ccc;
+    font-size: 16px;
+}
+
+.lista{
+    margin-top: 20px;
+}
+
+.item{
+    background: #e3f2fd;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.3s;
+}
+
+.item:hover{
+    transform: scale(1.01);
+    background: #bbdefb;
+}
+
+.item input{
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.item label{
+    font-size: 17px;
+}
+
+button{
+    width: 100%;
+    padding: 16px;
+    margin-top: 30px;
+    border: none;
+    border-radius: 14px;
+    background: #1565c0;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover{
+    background: #0d47a1;
+    transform: scale(1.02);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎧 Checklist DJ Audio</h1>
+
+<div class="nombre">
+<label><b>Nombre del empleado:</b></label>
+<input type="text" id="nombre" placeholder="Escriba su nombre">
+</div>
+
+<div class="lista">
+
+<div class="item"><input type="checkbox" id="1"><label>Preparar cabina de audio</label></div>
+
+<div class="item"><input type="checkbox" id="2"><label>Verificar funcionamiento del proyector</label></div>
+
+<div class="item"><input type="checkbox" id="3"><label>Verificar funcionamiento de las luces</label></div>
+
+<div class="item"><input type="checkbox" id="4"><label>Poner música durante el evento</label></div>
+
+<div class="item"><input type="checkbox" id="5"><label>Apoyar a coordinadores y animadora</label></div>
+
+<div class="item"><input type="checkbox" id="6"><label>Solicitar radio</label></div>
+
+<div class="item"><input type="checkbox" id="7"><label>Cargar y entregar radios al inicio del evento</label></div>
+
+<div class="item"><input type="checkbox" id="8"><label>Recolectar radios y dejarlos en su lugar</label></div>
+
+<div class="item"><input type="checkbox" id="9"><label>Ayudar a llevar la basura a su lugar</label></div>
+
+<div class="item"><input type="checkbox" id="10"><label>Ayudar a recoger el salón al finalizar el evento</label></div>
+
+<div class="item"><input type="checkbox" id="11"><label>Ayudar a quitar adornos</label></div>
+
+<div class="item"><input type="checkbox" id="12"><label>Dejar el cuarto de limpieza ordenado</label></div>
+
+</div>
+
+<button onclick="generarPDF()">
+📄 Generar PDF Profesional
+</button>
+
+</div>
+
+<script>
+
+async function generarPDF(){
+
+    const { jsPDF } = window.jspdf;
+
+    const doc = new jsPDF();
+
+    const nombre = document.getElementById("nombre").value || "Sin nombre";
+
+    const actividades = [
+
+        "Preparar cabina de audio",
+        "Verificar funcionamiento del proyector",
+        "Verificar funcionamiento de las luces",
+        "Poner música durante el evento",
+        "Apoyar a coordinadores y animadora",
+        "Solicitar radio",
+        "Cargar y entregar radios al inicio del evento",
+        "Recolectar radios y dejarlos en su lugar",
+        "Ayudar a llevar la basura a su lugar",
+        "Ayudar a recoger el salón al finalizar el evento",
+        "Ayudar a quitar adornos",
+        "Dejar el cuarto de limpieza ordenado"
+
+    ];
+
+    // ENCABEZADO
+    doc.setFillColor(21,101,192);
+    doc.rect(0,0,210,30,"F");
+
+    doc.setTextColor(255,255,255);
+    doc.setFontSize(22);
+    doc.text("CHECKLIST DJ AUDIO",20,20);
+
+    // DATOS
+    doc.setTextColor(0,0,0);
+
+    doc.setFontSize(14);
+
+    doc.text("Empleado:",20,45);
+    doc.text(nombre,55,45);
+
+    const fecha = new Date().toLocaleDateString();
+
+    doc.text("Fecha:",20,55);
+    doc.text(fecha,55,55);
+
+    // TABLA
+    let y = 75;
+
+    doc.setFillColor(240,240,240);
+    doc.rect(15,y-8,180,10,"F");
+
+    doc.setFontSize(13);
+
+    doc.text("Actividad",20,y);
+    doc.text("Estado",160,y);
+
+    y += 10;
+
+    actividades.forEach((actividad,index)=>{
+
+        const checked = document.getElementById(index + 1).checked;
+
+        if(y > 270){
+
+            doc.addPage();
+
+            y = 20;
+
+        }
+
+        doc.setDrawColor(200);
+
+        doc.rect(15,y-6,180,10);
+
+        doc.setFontSize(10);
+
+        doc.text(actividad,20,y);
+
+        if(checked){
+
+            doc.setTextColor(0,150,0);
+            doc.text("REALIZADO ✔",155,y);
+
+        }else{
+
+            doc.setTextColor(200,0,0);
+            doc.text("NO REALIZADO ✘",150,y);
+
+        }
+
+        doc.setTextColor(0,0,0);
+
+        y += 12;
+
+    });
+
+    y += 15;
+
+    doc.setFontSize(10);
+
+    doc.text(
+        "Documento generado automáticamente por el sistema Oky Doky",
+        20,
+        y
+    );
+
+    doc.save("Checklist_DJ_Audio.pdf");
+
+}
+
+</script>
+
+</body>
+</html>
