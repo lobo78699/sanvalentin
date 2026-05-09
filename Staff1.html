@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checklist Staff</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#8e24aa,#ce93d8);
+    padding: 20px;
+}
+
+.container{
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+h1{
+    text-align: center;
+    color: #7b1fa2;
+    margin-bottom: 30px;
+    font-size: 35px;
+}
+
+.nombre{
+    margin-bottom: 25px;
+}
+
+input[type="text"]{
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 2px solid #ccc;
+    font-size: 16px;
+}
+
+.lista{
+    margin-top: 20px;
+}
+
+.item{
+    background: #f3e5f5;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.3s;
+}
+
+.item:hover{
+    transform: scale(1.01);
+    background: #e1bee7;
+}
+
+.item input{
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.item label{
+    font-size: 17px;
+}
+
+button{
+    width: 100%;
+    padding: 16px;
+    margin-top: 30px;
+    border: none;
+    border-radius: 14px;
+    background: #7b1fa2;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover{
+    background: #6a1b9a;
+    transform: scale(1.02);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎉 Checklist Staff</h1>
+
+<div class="nombre">
+<label><b>Nombre del empleado:</b></label>
+<input type="text" id="nombre" placeholder="Escriba su nombre">
+</div>
+
+<div class="lista">
+
+<div class="item"><input type="checkbox" id="1"><label>Limpieza de área de juegos</label></div>
+
+<div class="item"><input type="checkbox" id="2"><label>Verificar papel y jabón en baños</label></div>
+
+<div class="item"><input type="checkbox" id="3"><label>Revisar insumos para realizar limpieza</label></div>
+
+<div class="item"><input type="checkbox" id="4"><label>Colocar la piñata</label></div>
+
+<div class="item"><input type="checkbox" id="5"><label>Limpieza de cancha de fútbol</label></div>
+
+<div class="item"><input type="checkbox" id="6"><label>Inflar globos salchicha</label></div>
+
+<div class="item"><input type="checkbox" id="7"><label>Ordenar globos metálicos</label></div>
+
+<div class="item"><input type="checkbox" id="8"><label>Limpieza de áreas en pista y planta alta del salón</label></div>
+
+<div class="item"><input type="checkbox" id="9"><label>Preparar lo necesario para las piñatas</label></div>
+
+<div class="item"><input type="checkbox" id="10"><label>Verificar que se tengan bolsas de basura</label></div>
+
+<div class="item"><input type="checkbox" id="11"><label>Preparar lo necesario para concursos</label></div>
+
+<div class="item"><input type="checkbox" id="12"><label>Verificar que se tengan vasos Oky Doky a ocupar</label></div>
+
+<div class="item"><input type="checkbox" id="13"><label>Comprar hielos</label></div>
+
+<div class="item"><input type="checkbox" id="14"><label>Barrer y quitar piñata</label></div>
+
+<div class="item"><input type="checkbox" id="15"><label>Organizar a los niños para concursos y piñata</label></div>
+
+<div class="item"><input type="checkbox" id="16"><label>Apoyar en actividades de animación</label></div>
+
+<div class="item"><input type="checkbox" id="17"><label>Preparar y limpiar botargas</label></div>
+
+<div class="item"><input type="checkbox" id="18"><label>Guardar botargas</label></div>
+
+<div class="item"><input type="checkbox" id="19"><label>Llevar la basura a los botes</label></div>
+
+<div class="item"><input type="checkbox" id="20"><label>Ayudar a recoger el salón al finalizar el evento</label></div>
+
+<div class="item"><input type="checkbox" id="21"><label>Solicitar radio</label></div>
+
+</div>
+
+<button onclick="generarPDF()">
+📄 Generar PDF Profesional
+</button>
+
+</div>
+
+<script>
+
+async function generarPDF(){
+
+    const { jsPDF } = window.jspdf;
+
+    const doc = new jsPDF();
+
+    const nombre = document.getElementById("nombre").value || "Sin nombre";
+
+    const actividades = [
+
+        "Limpieza de área de juegos",
+        "Verificar papel y jabón en baños",
+        "Revisar insumos para realizar limpieza",
+        "Colocar la piñata",
+        "Limpieza de cancha de fútbol",
+        "Inflar globos salchicha",
+        "Ordenar globos metálicos",
+        "Limpieza de áreas en pista y planta alta del salón",
+        "Preparar lo necesario para las piñatas",
+        "Verificar que se tengan bolsas de basura",
+        "Preparar lo necesario para concursos",
+        "Verificar que se tengan vasos Oky Doky a ocupar",
+        "Comprar hielos",
+        "Barrer y quitar piñata",
+        "Organizar a los niños para concursos y piñata",
+        "Apoyar en actividades de animación",
+        "Preparar y limpiar botargas",
+        "Guardar botargas",
+        "Llevar la basura a los botes",
+        "Ayudar a recoger el salón al finalizar el evento",
+        "Solicitar radio"
+
+    ];
+
+    // ENCABEZADO
+    doc.setFillColor(123,31,162);
+    doc.rect(0,0,210,30,"F");
+
+    doc.setTextColor(255,255,255);
+    doc.setFontSize(22);
+    doc.text("CHECKLIST STAFF",20,20);
+
+    // DATOS
+    doc.setTextColor(0,0,0);
+
+    doc.setFontSize(14);
+
+    doc.text("Empleado:",20,45);
+    doc.text(nombre,55,45);
+
+    const fecha = new Date().toLocaleDateString();
+
+    doc.text("Fecha:",20,55);
+    doc.text(fecha,55,55);
+
+    // TABLA
+    let y = 75;
+
+    doc.setFillColor(240,240,240);
+    doc.rect(15,y-8,180,10,"F");
+
+    doc.setFontSize(13);
+
+    doc.text("Actividad",20,y);
+    doc.text("Estado",160,y);
+
+    y += 10;
+
+    actividades.forEach((actividad,index)=>{
+
+        const checked = document.getElementById(index + 1).checked;
+
+        if(y > 270){
+
+            doc.addPage();
+
+            y = 20;
+
+        }
+
+        doc.setDrawColor(200);
+
+        doc.rect(15,y-6,180,10);
+
+        doc.setFontSize(10);
+
+        doc.text(actividad,20,y);
+
+        if(checked){
+
+            doc.setTextColor(0,150,0);
+            doc.text("REALIZADO ✔",155,y);
+
+        }else{
+
+            doc.setTextColor(200,0,0);
+            doc.text("NO REALIZADO ✘",150,y);
+
+        }
+
+        doc.setTextColor(0,0,0);
+
+        y += 12;
+
+    });
+
+    y += 15;
+
+    doc.setFontSize(10);
+
+    doc.text(
+        "Documento generado automáticamente por el sistema Oky Doky",
+        20,
+        y
+    );
+
+    doc.save("Checklist_Staff.pdf");
+
+}
+
+</script>
+
+</body>
+</html>
