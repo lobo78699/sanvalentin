@@ -137,7 +137,7 @@ button:hover{
 </div>
 
 <button onclick="generarPDF()">
-📄 Generar PDF Profesional
+📄 Generar PDF y Abrir WhatsApp
 </button>
 
 </div>
@@ -252,7 +252,34 @@ async function generarPDF(){
         y
     );
 
-    doc.save("Checklist_DJ_Audio.pdf");
+    // GENERAR PDF
+    const pdfBlob = doc.output("blob");
+
+    const pdfUrl = URL.createObjectURL(pdfBlob);
+
+    // DESCARGAR PDF
+    const enlace = document.createElement("a");
+
+    enlace.href = pdfUrl;
+
+    enlace.download = "Checklist_DJ_Audio.pdf";
+
+    document.body.appendChild(enlace);
+
+    enlace.click();
+
+    document.body.removeChild(enlace);
+
+    // WHATSAPP
+    const telefono = "5215235294948";
+
+    const mensaje =
+    "Hola 🎧📄 Ya se generó el Checklist DJ Audio de " + nombre;
+
+    const whatsappURL =
+    `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+
+    window.open(whatsappURL, "_blank");
 
 }
 
