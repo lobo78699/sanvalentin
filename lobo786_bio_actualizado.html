@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080a12">
+  <meta name="description" content="Todas las plataformas de lobo786 en un solo lugar. Gaming, directos y clips.">
+  <title>lobo786 | Sígueme</title>
+  <style>
+    :root {
+      --bg: #080a12;
+      --panel: rgba(18, 22, 37, .82);
+      --text: #f4f6ff;
+      --muted: #a7aec5;
+      --red: #ff3548;
+      --purple: #9b5cff;
+      --line: rgba(255,255,255,.12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; min-height: 100vh; color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+      background:
+        radial-gradient(ellipse at 15% 8%, rgba(94, 42, 166, .28), transparent 38%),
+        radial-gradient(ellipse at 90% 30%, rgba(255, 53, 72, .13), transparent 35%),
+        linear-gradient(160deg, #080a12 0%, #101326 55%, #080a12 100%);
+      overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .17;
+      background-image: radial-gradient(#fff 0.7px, transparent .7px);
+      background-size: 27px 27px; mask-image: linear-gradient(to bottom, black, transparent 80%);
+    }
+    .aurora {
+      position: fixed; top: -170px; left: 50%; transform: translateX(-50%);
+      width: min(900px, 110vw); height: 340px; pointer-events: none; filter: blur(55px);
+      opacity: .28; background: linear-gradient(90deg, transparent, #6c42ff, #1fc9b0, #a14cff, transparent);
+      border-radius: 50%; animation: drift 11s ease-in-out infinite alternate;
+    }
+    @keyframes drift { from { transform: translateX(-54%) rotate(-5deg); } to { transform: translateX(-46%) rotate(5deg); } }
+    .wrap { width: min(100% - 32px, 620px); margin: 0 auto; position: relative; padding: 48px 0 30px; }
+    header { text-align: center; }
+    .avatar {
+      width: 132px; height: 132px; margin: 0 auto 18px; border-radius: 32px;
+      display: block; object-fit: cover; position: relative; isolation: isolate;
+      background: linear-gradient(145deg, #29213f, #111523 70%);
+      border: 1px solid rgba(255,255,255,.22);
+      box-shadow: 0 0 0 7px rgba(255,255,255,.025), 0 12px 45px rgba(0,0,0,.38), 0 0 38px rgba(155,92,255,.24);
+    }
+    .avatar::after { content:""; position:absolute; inset:-2px; border-radius:34px; padding:2px; background:linear-gradient(135deg,var(--red),var(--purple),transparent 75%); -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; z-index:-1; }
+    h1 { margin: 0; font-size: clamp(2.3rem, 9vw, 3.6rem); letter-spacing: -.07em; line-height: 1; font-weight: 950; }
+    h1 span { color: var(--red); text-shadow: 0 0 28px rgba(255,53,72,.26); }
+    .tagline { margin: 14px auto 0; color: var(--muted); font-size: 1rem; line-height: 1.6; max-width: 390px; }
+    .status { display: inline-flex; align-items: center; gap: 8px; margin-top: 17px; border: 1px solid var(--line); background: rgba(255,255,255,.04); border-radius: 999px; padding: 7px 12px; font-size: .78rem; color: #dfe4f7; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: #8bffbd; box-shadow: 0 0 12px #8bffbd; }
+    .section-label { display: flex; align-items: center; gap: 12px; margin: 36px 0 14px; color: #d5d9eb; text-transform: uppercase; letter-spacing: .17em; font-size: .72rem; font-weight: 800; }
+    .section-label::after { content:""; height:1px; flex:1; background: linear-gradient(90deg,var(--line),transparent); }
+    .links { display: grid; gap: 12px; }
+    .platform {
+      --accent: #fff;
+      display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--text);
+      padding: 15px 16px; border-radius: 19px; border: 1px solid var(--line);
+      background: linear-gradient(110deg, rgba(255,255,255,.065), rgba(255,255,255,.025));
+      box-shadow: 0 8px 25px rgba(0,0,0,.13); transition: transform .2s ease, border-color .2s ease, background .2s ease;
+      backdrop-filter: blur(12px);
+    }
+    .platform:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 65%, transparent); background: linear-gradient(110deg, color-mix(in srgb, var(--accent) 13%, transparent), rgba(255,255,255,.035)); }
+    .platform:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .icon {
+      width: 48px; height: 48px; flex: 0 0 48px; display:grid; place-items:center;
+      border-radius: 14px; background: color-mix(in srgb, var(--accent) 16%, #111523); color: var(--accent);
+      border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+    }
+    .icon svg { width: 25px; height: 25px; fill: currentColor; }
+    .copy { min-width: 0; flex: 1; }
+    .copy strong { display:block; font-size: 1rem; font-weight: 800; }
+    .copy small { display:block; color: var(--muted); font-size: .82rem; margin-top: 4px; }
+    .arrow { color: #8d94ad; font-size: 1.25rem; transition: transform .2s ease; }
+    .platform:hover .arrow { transform: translate(3px,-2px); color: var(--accent); }
+    .youtube { --accent:#ff4b55; } .tiktok { --accent:#66f7ed; } .twitch { --accent:#b38aff; } .kick { --accent:#6dff9a; }
+    .note { margin-top: 23px; padding: 15px 16px; border: 1px solid rgba(155,92,255,.22); border-radius: 16px; background: rgba(155,92,255,.07); color: #c8cde0; font-size: .88rem; line-height: 1.55; }
+    .note strong { color: #fff; }
+    footer { text-align:center; padding: 30px 0 4px; color: #747c96; font-size: .78rem; }
+    footer span { color: var(--red); }
+    @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation:none !important; transition:none !important; scroll-behavior:auto !important; } }
+  </style>
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"></div>
+  <main class="wrap">
+    <header>
+      <img class="avatar" src="https://raw.githubusercontent.com/lobo78699/sanvalentin/refs/heads/main/Lobo786_%20Emblema%20ne%C3%B3n%20del%20lobo%20gamer.png" alt="Logo neón del lobo gamer de lobo786">
+      <h1><span>lobo</span>786</h1>
+      <p class="tagline">¡Manda para arriba! 🚀<br>Clips, aventuras y directos: elige tu guarida.</p>
+      <div class="status"><span class="dot"></span> Todas mis plataformas en un solo lugar</div>
+    </header>
+
+    <div class="section-label">Encuéntrame aquí</div>
+    <nav class="links" aria-label="Redes sociales de lobo786">
+      <a class="platform youtube" href="https://www.youtube.com/@lobo7869" target="_blank" rel="noopener noreferrer">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg></span>
+        <span class="copy"><strong>YouTube</strong><small>Vídeos, gameplays y aventuras</small></span><span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="platform tiktok" href="https://www.tiktok.com/@lobo78699?lang=es" target="_blank" rel="noopener noreferrer">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19.6 6.3a6.6 6.6 0 0 1-4.1-4.1A6.8 6.8 0 0 1 15.2 0h-4.4v15.1a2.9 2.9 0 1 1-2-2.8V7.8a7.3 7.3 0 1 0 6.7 7.3V7.5a10.8 10.8 0 0 0 6.3 2V5.2a6.7 6.7 0 0 1-2.2 1.1Z"/></svg></span>
+        <span class="copy"><strong>TikTok</strong><small>Clips rápidos y momentos épicos</small></span><span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="platform twitch" href="https://www.twitch.tv/lobo78699" target="_blank" rel="noopener noreferrer">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 0 0 4v16h6v4h4l4-4h4l6-6V0H3Zm18 13-4 4h-5l-4 4v-4H3V2h18v11ZM16 5h2v6h-2V5Zm-5 0h2v6h-2V5Z"/></svg></span>
+        <span class="copy"><strong>Twitch</strong><small>Directos y partidas en vivo</small></span><span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="platform kick" href="https://kick.com/lobo786-99" target="_blank" rel="noopener noreferrer">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 2h7v7h3V6h8v5h-4v2h4v5h-8v-3h-3v7H3V2Z"/></svg></span>
+        <span class="copy"><strong>Kick</strong><small>Más gaming, más comunidad</small></span><span class="arrow" aria-hidden="true">↗</span>
+      </a>
+    </nav>
+
+    <div class="note"><strong>🐺 ¡Únete a la manada!</strong><br>Si te gustan los videojuegos, las aventuras y los buenos momentos, sígueme en tus plataformas favoritas.</div>
+    <footer>Hecho con <span>♥</span> y espíritu gamer · <span>lobo786</span></footer>
+  </main>
+</body>
+</html>
